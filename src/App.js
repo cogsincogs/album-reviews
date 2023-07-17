@@ -9,12 +9,15 @@ import RootLayout from './layouts/RootLayout'
 
 import Login from './pages/login'
 import Home from './pages/home'
+import ProtectedRoutes from './layouts/ProtectedRoutes'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Login />} />
-      <Route path="home" element={<Home />} />
+      <Route element={<ProtectedRoutes />}>
+        <Route path="home" element={<Home />} />
+      </Route>
     </Route>
   )
 )
