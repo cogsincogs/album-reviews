@@ -1,5 +1,4 @@
 import { Navigate, Outlet } from "react-router-dom"
-import Login from "../pages/login"
 import { useEffect, useState } from "react"
 
 export default function ProtectedRoutes() {
