@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import BorderBox from '../layouts/borderbox'
+import { Heading } from '@chakra-ui/react'
 
 export default function Home() {
     const [user, setUser] = useState(false)
@@ -31,10 +33,10 @@ export default function Home() {
     const username = user.username;
 
     return (
-        <>
-            <p>Hello {username}</p>
+        <BorderBox>
+            <Heading>Hello {username}!</Heading>
             <NavLink className="home" to="http://localhost:8080/logout">Logout</NavLink>
-        </>
+        </BorderBox>
         
     )
 }
