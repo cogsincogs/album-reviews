@@ -8,7 +8,7 @@ export default function Login() {
     return (
         <BorderBox>
             <Heading m={5}>Hello!</Heading>
-            <Flex align='center' justify='space-between' direction='column' w="90%">
+            <Flex align='flex-start' justify='space-between' direction='column' w="90%">
                 <Text m={3}>
                     This is a demonstration of a login page. It uses an API coded in Express.js, as well 
                     as MongoDB, OAuth2.0, NodeJS, and React. The project also makes use of docker containers. 
