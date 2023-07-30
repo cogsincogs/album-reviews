@@ -9,6 +9,7 @@ export default function ProtectedRoutes() {
 
         setLoading(true)
 
+        // This is to determine whether to go to protected route or not
         async function getUser() {
             // get user and check if logged in. return user && user.loggedIn
             const response = await fetch('http://localhost:8080/user_data', {
@@ -20,7 +21,6 @@ export default function ProtectedRoutes() {
                 }
             })
             let result = await response.json()
-            console.log(result)
             setLoading(false)
             setUser(result)
         }
