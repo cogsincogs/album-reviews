@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import BorderBox from '../layouts/borderbox'
 import { Flex, Heading, Text } from '@chakra-ui/react'
+import LoadingSpinner from '../components/loadingspinner'
 
 export default function Home() {
     const [user, setUser] = useState(false)
@@ -29,7 +30,7 @@ export default function Home() {
         getUser()
     }, [])
 
-    if (loading) return <span>Loading</span>
+    if (loading) return <LoadingSpinner />
 
     const username = user.username;
     const loginCount = user.loginCount;
