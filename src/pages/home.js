@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import BorderBox from '../layouts/borderbox'
-import { Heading, Text } from '@chakra-ui/react'
+import { Flex, Heading, Text } from '@chakra-ui/react'
 
 export default function Home() {
     const [user, setUser] = useState(false)
@@ -33,17 +33,24 @@ export default function Home() {
 
     const username = user.username;
     const loginCount = user.loginCount;
-    const lastLogin = new Date(user.lastLogin)
-    const formattedDate = lastLogin.toLocaleDateString()
-    const formattedTime = lastLogin.toLocaleTimeString()
+    const lastLogin = user.lastLogin ? new Date(user.lastLogin) : false
+    const formattedDate = lastLogin ? lastLogin.toLocaleDateString() : false
+    const formattedTime = lastLogin ? lastLogin.toLocaleTimeString() : false
 
     return (
         <BorderBox>
             <Heading>Hello {username}!</Heading>
-            <Text>Login count: {loginCount}</Text>
-            {lastLogin
-                ? <Text>Last login date: {formattedDate} at {formattedTime}</Text>
-                : <Text>Welcome!</Text>}
+            <Flex align='center' justify='space-between' w='100%' direction='row'>
+                <Flex align='flex-start' justify='space-between' direction='column' w="50%" m={5}>
+                    <Text m={3}>Login count: {loginCount}</Text>
+                    {lastLogin
+                        ? <Text m={3}>Last login date: {formattedDate} at {formattedTime}</Text>
+                        : <Text m={3}>Welcome!</Text>}
+                </Flex>
+                <Flex align='flex-start' justify='center' direction='column' w='50%' m={5}>
+                    <Text>Posts</Text>
+                </Flex>
+            </Flex>
             <NavLink className="home" to="http://localhost:8080/logout">Logout</NavLink>
         </BorderBox>
         
