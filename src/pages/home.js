@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import BorderBox from '../layouts/borderbox'
 import { Flex, Heading, Text } from '@chakra-ui/react'
 import LoadingSpinner from '../components/loadingspinner'
+import Notepad from '../components/notepad'
 
 export default function Home() {
     const [user, setUser] = useState(false)
@@ -49,7 +50,7 @@ export default function Home() {
                         : <Text m={3}>Welcome!</Text>}
                 </Flex>
                 <Flex align='flex-start' justify='center' direction='column' w='50%' m={5}>
-                    <Text>Posts</Text>
+                    <Notepad />
                 </Flex>
             </Flex>
             <NavLink className="home" to="http://localhost:8080/logout">Logout</NavLink>
