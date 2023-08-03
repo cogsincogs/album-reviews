@@ -50,7 +50,7 @@ export default function Home() {
                         : <Text m={3}>Welcome!</Text>}
                 </Flex>
                 <Flex align='flex-start' justify='center' direction='column' w='50%' m={5}>
-                    <Notepad />
+                    <Notepad user={user} />
                 </Flex>
             </Flex>
             <NavLink className="home" to="http://localhost:8080/logout">Logout</NavLink>
