@@ -22,8 +22,7 @@ export default function Notepad({user}) {
                 "Content-Type": "application/json"
             }
         })
-        let posts = await response.json()
-        let result = posts.reverse()
+        let result = await response.json()
         setPostsArray(result)
     }
 
@@ -45,14 +44,32 @@ export default function Notepad({user}) {
         getPostsArray()
     }
 
+    const handleDeletePost = async (e, postIndex) => {
+        e.preventDefault()
+
+        await fetch('http://localhost:8080/posts/' + id, {
+            method: "DELETE",
+            mode: "cors",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                postIndex: postIndex
+            })
+        }).catch(e => console.log(e))
+
+        getPostsArray()
+    }
+
     return (
         <>
             <Flex direction='column' align='center' justify='center' w='100%'>
                 <TextBox userId={id} handler={handleSendPost} />
-                <Flex direction='column' align='flex-start' justify='flex-start' w='100%' maxH='40vh' overflowY='auto'>
+                <Flex direction='column-reverse' align='flex-start' justify='flex-start' w='100%' maxH='40vh' overflowY='auto'>
                     {
                         postsArray.map((post, index) => {
-                            return <Post key={index} date={post.date} content={post.content} />
+                            return <Post key={index} index={index} date={post.date} content={post.content} deleteHandler={handleDeletePost} />
                         })
                     }
                 </Flex>
