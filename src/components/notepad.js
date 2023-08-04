@@ -1,4 +1,4 @@
-import { Text, Flex, Textarea} from "@chakra-ui/react";
+import { Text, Flex, Textarea, Button } from "@chakra-ui/react";
 import Post from "./post";
 import { useEffect, useState } from "react";
 
@@ -30,7 +30,10 @@ export default function Notepad({user}) {
     return (
         <>
             <Flex direction='column' align='center' justify='center' w='100%'>
-                    <Textarea placeholder='Make a note here' size='xs' resize='none' backgroundColor='white' border='1px solid' borderColor='gray.400' minW='90%' />
+                <Flex align='center' justify='center' w='100%'>
+                    <Textarea placeholder='Make a note here' size='xs' resize='none' backgroundColor='white' border='1px solid' borderColor='gray.400' />
+                    <Button backgroundColor='white' border='1px solid' borderColor='gray.400' fontSize='14' w='50px' h='30px' m='2' pl='10' pr='10'>Post</Button>
+                </Flex>
                 <Flex direction='column' align='flex-start' justify='flex-start' w='100%' maxH='40vh' overflowY='auto'>
                     {
                         postsArray.map((post, index) => {
