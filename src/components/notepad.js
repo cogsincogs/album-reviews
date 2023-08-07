@@ -88,7 +88,7 @@ export default function Notepad({user}) {
                 <Flex direction='column-reverse' align='flex-start' justify='flex-start' w='100%' maxH='40vh' overflowY='auto'>
                     {
                         postsArray.map((post, index) => {
-                            return <Post key={index} index={index} date={post.date} content={post.content} deleteHandler={handleDeletePost} editHandler={handleEditPost} />
+                            return <Post key={post.date} index={index} userId={id} date={post.date} content={post.content} deleteHandler={handleDeletePost} editHandler={handleEditPost} />
                         })
                     }
                 </Flex>
