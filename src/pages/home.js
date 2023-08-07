@@ -35,9 +35,14 @@ export default function Home() {
 
     const username = user.username;
     const loginCount = user.loginCount;
+
     const lastLogin = user.lastLogin ? new Date(user.lastLogin) : false
-    const formattedDate = lastLogin ? lastLogin.toLocaleDateString() : false
-    const formattedTime = lastLogin ? lastLogin.toLocaleTimeString() : false
+    const formattedLLDate = lastLogin ? lastLogin.toLocaleDateString() : false
+    const formattedLLTime = lastLogin ? lastLogin.toLocaleTimeString() : false
+
+    const currentLoginDate = user.currentLoginDate ? new Date(user.currentLoginDate) : false
+    const formattedCLDate = currentLoginDate ? currentLoginDate.toLocaleDateString() : false
+    const formattedCLTime = currentLoginDate ? currentLoginDate.toLocaleTimeString() : false
 
     return (
         <BorderBox>
@@ -46,8 +51,9 @@ export default function Home() {
                 <Flex align='flex-start' justify='space-between' direction='column' w="50%" m={5}>
                     <Text m={3}>Login count: {loginCount}</Text>
                     {lastLogin
-                        ? <Text m={3}>Last login date: {formattedDate} at {formattedTime}</Text>
+                        ? <Text m={3}>Last login date: {formattedLLDate} at {formattedLLTime}</Text>
                         : <Text m={3}>Welcome!</Text>}
+                    <Text m={3}>Current login date: {formattedCLDate} at {formattedCLTime}</Text>
                 </Flex>
                 <Flex align='flex-start' justify='center' direction='column' w='50%' m={5}>
                     <Notepad user={user} />
