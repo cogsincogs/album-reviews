@@ -1,5 +1,6 @@
 import { Navigate, Outlet } from "react-router-dom"
 import { useEffect, useState } from "react"
+import LoadingSpinner from "../components/loadingspinner"
 
 export default function ProtectedRoutes() {
     const [user, setUser] = useState(false)
@@ -27,7 +28,7 @@ export default function ProtectedRoutes() {
         getUser()
     }, [])
 
-    if (loading) return <span>Loading</span>
+    if (loading) return <LoadingSpinner />
 
     return user ? <Outlet /> : <Navigate to="/" />
 }
