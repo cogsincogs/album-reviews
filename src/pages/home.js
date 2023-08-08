@@ -40,7 +40,9 @@ export default function Home() {
 
     return (
         <BorderBox>
-            <Heading>Hello {username}!</Heading>
+            {loginCount > 1
+                ? <Heading>Welcome back, {username}!</Heading>
+                : <Heading>Hello {username}!</Heading>}
             <Flex align='center' justify='space-between' w='100%' direction='row'>
                 <Flex align='flex-start' justify='space-between' direction='column' w="50%" m={5}>
                     <Text m={3}>Login count: {loginCount}</Text>
