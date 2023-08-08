@@ -85,12 +85,14 @@ export default function Notepad({user}) {
         <>
             <Flex direction='column' align='center' justify='center' w='100%'>
                 <TextBox userId={id} handler={handleSendPost} />
-                <Flex direction='column-reverse' align='flex-start' justify='flex-start' w='100%' maxH='40vh' overflowY='auto'>
-                    {
-                        postsArray.map((post, index) => {
-                            return <Post key={post.date} index={index} userId={id} date={post.date} content={post.content} deleteHandler={handleDeletePost} editHandler={handleEditPost} />
-                        })
-                    }
+                <Flex direction="column" w='100%' maxH='40vh' overflowY='auto'>
+                    <Flex direction='column-reverse' align='flex-start' justify='flex-start' w="100%">
+                        {
+                            postsArray.map((post, index) => {
+                                return <Post key={post.date} index={index} userId={id} date={post.date} content={post.content} deleteHandler={handleDeletePost} editHandler={handleEditPost} />
+                            })
+                        }
+                    </Flex>
                 </Flex>
             </Flex>
         </>
