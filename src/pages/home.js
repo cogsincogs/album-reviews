@@ -12,24 +12,22 @@ export default function Home() {
     useEffect(() => {
 
         setLoading(true)
-
-        // This is to get information about the user
-        async function getUser() {
-            // get user and check if logged in. return user && user.loggedIn
-            const response = await fetch('http://localhost:8080/user_data', {
-                method: "GET",
-                mode: "cors",
-                credentials: "include",
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            })
-            let result = await response.json()
-            setLoading(false)
-            setUser(result.user)
-        }
-        getUser()
+        getUser().then(() => setLoading(false))
     }, [])
+
+    // This is to get information about the user
+    async function getUser() {
+        const response = await fetch('http://localhost:8080/user_data', {
+            method: "GET",
+            mode: "cors",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        let result = await response.json()
+        setUser(result.user)
+    }
 
     if (loading) return <LoadingSpinner />
 
@@ -40,10 +38,6 @@ export default function Home() {
     const formattedLLDate = lastLogin ? lastLogin.toLocaleDateString() : false
     const formattedLLTime = lastLogin ? lastLogin.toLocaleTimeString() : false
 
-    const currentLoginDate = user.currentLoginDate ? new Date(user.currentLoginDate) : false
-    const formattedCLDate = currentLoginDate ? currentLoginDate.toLocaleDateString() : false
-    const formattedCLTime = currentLoginDate ? currentLoginDate.toLocaleTimeString() : false
-
     return (
         <BorderBox>
             <Heading>Hello {username}!</Heading>
@@ -51,9 +45,8 @@ export default function Home() {
                 <Flex align='flex-start' justify='space-between' direction='column' w="50%" m={5}>
                     <Text m={3}>Login count: {loginCount}</Text>
                     {lastLogin
-                        ? <Text m={3}>Last login date: {formattedLLDate} at {formattedLLTime}</Text>
+                        ? <Text m={3}>Your previous successful login was on {formattedLLDate} at {formattedLLTime}.</Text>
                         : <Text m={3}>Welcome!</Text>}
-                    <Text m={3}>Current login date: {formattedCLDate} at {formattedCLTime}</Text>
                 </Flex>
                 <Flex align='flex-start' justify='center' direction='column' w='50%' m={5}>
                     <Notepad user={user} />
