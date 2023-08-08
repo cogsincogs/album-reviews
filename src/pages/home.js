@@ -31,7 +31,7 @@ export default function Home() {
 
     if (loading) return <LoadingSpinner />
 
-    const username = user.username;
+    const firstname = user.firstname;
     const loginCount = user.loginCount;
 
     const lastLogin = user.lastLogin ? new Date(user.lastLogin) : false
@@ -41,8 +41,8 @@ export default function Home() {
     return (
         <BorderBox>
             {loginCount > 1
-                ? <Heading>Welcome back, {username}!</Heading>
-                : <Heading>Hello {username}!</Heading>}
+                ? <Heading>Welcome back, {firstname}!</Heading>
+                : <Heading>Hello {firstname}!</Heading>}
             <Flex align='center' justify='space-between' w='100%' direction='row'>
                 <Flex align='flex-start' justify='space-between' direction='column' w="50%" m={5}>
                     <Text m={3}>Login count: {loginCount}</Text>
