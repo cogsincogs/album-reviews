@@ -23,7 +23,9 @@ export default function Notepad({user}) {
             }
         })
         let result = await response.json()
-        setPostsArray(result)
+        let currentPostsArray = [...postsArray]
+        currentPostsArray = result
+        setPostsArray(currentPostsArray)
     }
 
     const handleSendPost = async (e, postContent) => {
@@ -85,7 +87,7 @@ export default function Notepad({user}) {
         <>
             <Flex direction='column' align='center' justify='center' w='100%'>
                 <TextBox userId={id} handler={handleSendPost} />
-                <Flex direction="column" w='100%' maxH='40vh' overflowY='auto'>
+                <Flex direction="column" w='100%' maxH={480} overflowY='auto'>
                     <Flex direction='column-reverse' align='flex-start' justify='flex-start' w="100%">
                         {
                             postsArray.map((post, index) => {

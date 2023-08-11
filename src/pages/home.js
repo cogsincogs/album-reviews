@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import BorderBox from '../layouts/borderbox'
-import { Flex, Heading, Text } from '@chakra-ui/react'
+import { Button, Flex, Heading, Text } from '@chakra-ui/react'
 import LoadingSpinner from '../components/loadingspinner'
 import Notepad from '../components/notepad'
 
@@ -40,21 +40,27 @@ export default function Home() {
 
     return (
         <BorderBox>
-            {loginCount > 1
-                ? <Heading>Welcome back, {firstname}!</Heading>
-                : <Heading>Hello {firstname}!</Heading>}
-            <Flex align='center' justify='space-between' w='100%' direction='row'>
-                <Flex align='flex-start' justify='space-between' direction='column' w="50%" m={5}>
-                    <Text m={3}>Login count: {loginCount}</Text>
-                    {lastLogin
-                        ? <Text m={3}>Your previous successful login was on {formattedLLDate} at {formattedLLTime}.</Text>
-                        : <Text m={3}>Welcome!</Text>}
-                </Flex>
-                <Flex align='flex-start' justify='center' direction='column' w='50%' m={5}>
-                    <Notepad user={user} />
+            <Flex align="center" justify="flex-start" direction="column" w="100%" h="100%">
+                {loginCount > 1
+                    ? <Heading m={5}>Welcome back, {firstname}!</Heading>
+                    : <Heading>Hello {firstname}!</Heading>}
+                <Flex align='flex-start' justify='space-between' w='100%' direction='row'>
+                    <Flex direction="column" align="flex-start" justify="space-between" w="50%" h="100%">
+                        <Flex align='flex-start' justify='space-between' direction='column' m={5}>
+                            <Text m={3}>Login count: {loginCount}</Text>
+                            {lastLogin
+                                ? <Text m={3}>Your previous successful login was on {formattedLLDate} at {formattedLLTime}.</Text>
+                                : <Text m={3}>Welcome!</Text>}
+                        </Flex>
+                        <Flex direction="row" justify="center" m={5}>
+                            <NavLink className="home" to="http://localhost:8080/logout"><Button border="1px solid" borderColor="gray.400" backgroundColor="red.500" m={3} color="gray.100">Log out</Button></NavLink>
+                        </Flex>
+                    </Flex>
+                    <Flex align='flex-start' justify='flex-start' direction='column' w='50%' m={5}>
+                        <Notepad user={user} />
+                    </Flex>
                 </Flex>
             </Flex>
-            <NavLink className="home" to="http://localhost:8080/logout">Logout</NavLink>
         </BorderBox>
         
     )

@@ -5,6 +5,8 @@ import BorderBox from '../layouts/borderbox'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 
 export default function Login() {
+    
+
     return (
         <BorderBox>
             <Heading m={5}>Hello!</Heading>
