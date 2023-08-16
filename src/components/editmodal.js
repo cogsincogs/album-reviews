@@ -9,7 +9,7 @@ export default function EditModal({index, userId, isOpen, onClose, editHandler})
     }, [])
 
     async function getContent() {
-        const response = await fetch(`http://localhost:8080/posts/${userId}?postIndex=${index}`, {
+        const response = await fetch(process.env.REACT_APP_BACKEND_URL + `/posts/${userId}?postIndex=${index}`, {
             method: "GET",
             mode: "cors",
             credentials: "include",

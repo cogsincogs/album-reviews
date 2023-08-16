@@ -23,7 +23,7 @@ export default function Login() {
                     to demonstrate user authentication and the REST API.
                 </Text>
             </Flex>
-            <NavLink className="login" to="http://localhost:8080/auth/google" m={5}><GoogleButton/></NavLink>
+            <NavLink className="login" to={process.env.REACT_APP_BACKEND_URL + '/auth/google'} m={5}><GoogleButton/></NavLink>
         </BorderBox>  
     )
 }

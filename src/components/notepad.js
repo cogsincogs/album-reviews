@@ -3,6 +3,8 @@ import Post from "./post";
 import TextBox from "./textbox";
 import { useEffect, useState } from "react";
 
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
+
 export default function Notepad({user}) {
     const [postsArray, setPostsArray] = useState([])
 
@@ -14,7 +16,7 @@ export default function Notepad({user}) {
 
     // This is to get the array of user's posts
     async function getPostsArray() {
-        const response = await fetch('http://localhost:8080/posts/' + id, {
+        const response = await fetch(BACKEND_URL + '/posts/' + id, {
             method: "GET",
             mode: "cors",
             credentials: "include",
@@ -31,7 +33,7 @@ export default function Notepad({user}) {
     const handleSendPost = async (e, postContent) => {
         e.preventDefault()
         
-        await fetch('http://localhost:8080/posts/' + id, {
+        await fetch(BACKEND_URL + '/posts/' + id, {
             method: "POST",
             mode: "cors",
             credentials: "include",
@@ -49,7 +51,7 @@ export default function Notepad({user}) {
     const handleDeletePost = async (e, postIndex) => {
         e.preventDefault()
 
-        await fetch('http://localhost:8080/posts/' + id, {
+        await fetch(BACKEND_URL + '/posts/' + id, {
             method: "DELETE",
             mode: "cors",
             credentials: "include",
@@ -67,7 +69,7 @@ export default function Notepad({user}) {
     const handleEditPost = async (e, postIndex, postContent) => {
         e.preventDefault()
 
-        await fetch('http://localhost:8080/posts/' + id, {
+        await fetch(BACKEND_URL + '/posts/' + id, {
             method: "PATCH",
             mode: "cors",
             credentials: "include",

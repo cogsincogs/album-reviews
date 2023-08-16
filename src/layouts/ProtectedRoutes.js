@@ -13,7 +13,7 @@ export default function ProtectedRoutes() {
         // This is to determine whether to go to protected route or not
         async function getUser() {
             // get user and check if logged in. return user && user.loggedIn
-            const response = await fetch('http://localhost:8080/user_data', {
+            const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/user_data', {
                 method: "GET",
                 mode: "cors",
                 credentials: "include",
