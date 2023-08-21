@@ -1,2 +1,5 @@
-/node_modules
-.env
+login-page-frontend/node_modules
+login-page-backend/app/node_modules
+login-page-frontend/.env
+login-page-backend/.env
+*.rest

@@ -1,15 +1,27 @@
-version: '3'
+version: '2'
 
 services:
 
-  node:
+  frontend-node:
     build:
-      context: .
+      context: login-page-frontend
       dockerfile: Node.Dockerfile
     env_file:
-      - .env
+      - ./login-page-frontend/.env
     volumes:
-      - ./:/usr/src/app
+      - $PWD/login-page-frontend/:/usr/src/app
     ports:
       - 3000:3000
-    image: jwthomas/album-reviews-frontend-node
+#    image: jwthomas/album-reviews-frontend-node
+
+  backend-node:
+    build:
+      context: login-page-backend
+      dockerfile: Node.Dockerfile
+    env_file:
+      - ./login-page-backend/.env
+    volumes:
+      - $PWD/login-page-backend/app:/usr/src/app
+    ports:
+      - 8080:8080
+#    image: jwthomas/album-reviews-backend-node:latest
