@@ -11,7 +11,7 @@ services:
     volumes:
       - $PWD/login-page-frontend/:/usr/src/app
     ports:
-      - 3000:3000
+      - 80:80
     image: jwthomas/login-page-frontend-node
 
   backend-node:
