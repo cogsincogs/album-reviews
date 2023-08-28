@@ -5,23 +5,23 @@ services:
   frontend-node:
     build:
       context: login-page-frontend
-      dockerfile: Node.Dockerfile
+      dockerfile: Dockerfile
     env_file:
       - ./login-page-frontend/.env
     volumes:
       - $PWD/login-page-frontend/:/usr/src/app
     ports:
       - 3000:3000
-#    image: jwthomas/album-reviews-frontend-node
+    image: jwthomas/login-page-frontend-node
 
   backend-node:
     build:
       context: login-page-backend
-      dockerfile: Node.Dockerfile
+      dockerfile: Dockerfile
     env_file:
       - ./login-page-backend/.env
     volumes:
       - $PWD/login-page-backend/app:/usr/src/app
     ports:
       - 8080:8080
-#    image: jwthomas/album-reviews-backend-node:latest
+    image: jwthomas/login-page-backend-node:latest
