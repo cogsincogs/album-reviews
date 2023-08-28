@@ -2,6 +2,7 @@
 
 const express = require('express')
 const session = require('express-session')
+const MongoStore = require('connect-mongo')
 const mongoose = require('mongoose')
 const passport = require('passport')
 const cors = require('cors')
@@ -49,7 +50,10 @@ async function main () {
 }
 
 app.use(express.json())
-app.use(session({ secret: process.env.SESSION_SECRET }))
+app.use(session({ 
+  secret: process.env.SESSION_SECRET,
+  store: MongoStore.create({mongoUrl: process.env.ATLAS_URI})
+}))
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(cors(options))
