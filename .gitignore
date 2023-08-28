@@ -3,3 +3,4 @@ login-page-backend/app/node_modules
 login-page-frontend/.env
 login-page-backend/.env
 *.rest
+docker-tag.sh
