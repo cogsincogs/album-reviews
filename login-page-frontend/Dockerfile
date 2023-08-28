@@ -3,14 +3,14 @@ FROM node:20
 # Create app directory
 WORKDIR /usr/src/app
 
-ENV NODE_ENV development
+ENV NODE_ENV production
 
 # Install app dependencies
 COPY ./package*.json ./
 
-RUN npm install
+#RUN npm install
 # For production replace above with below
-# RUN npm ci --omit=dev
+RUN npm ci --omit=dev
 
 # Bundle app source
 COPY . .
