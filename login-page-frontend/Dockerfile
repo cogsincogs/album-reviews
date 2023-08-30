@@ -1,4 +1,4 @@
-FROM node:20
+FROM node:latest as build
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -8,14 +8,24 @@ ENV NODE_ENV production
 # Install app dependencies
 COPY ./package*.json ./
 
+# (Development)
 #RUN npm install
-# For production replace above with below
+# (Production)
 RUN npm ci --omit=dev
 
 # Bundle app source
 COPY . .
 
-EXPOSE 80
+# (Development)
+#EXPOSE 3000
 
-# Start server
-CMD [ "npm", "run", "start" ]
+# Start server (Development)
+#CMD [ "npm", "run", "start" ]
+
+# Build React app (Production)
+RUN npm run build
+FROM nginx:alpine
+RUN rm /etc/nginx/conf.d/default.conf
+COPY --from=build /usr/src/app/build /usr/share/nginx/html
+COPY ./nginx.conf /etc/nginx/conf.d/nginx.conf
+EXPOSE 80
