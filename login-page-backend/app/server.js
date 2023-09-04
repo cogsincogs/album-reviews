@@ -60,15 +60,15 @@ app.use(cors(options))
 
 const usersRouter = require('./routes/users.js')
 const postsRouter = require('./routes/posts')
-app.use('/user', usersRouter)
-app.use('/posts', postsRouter)
+app.use('/api/user', usersRouter)
+app.use('/api/posts', postsRouter)
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.send('<a href="/auth/google">Login with Google</a>')
 })
 
 app.get(
-  '/auth/google',
+  '/api/auth/google',
   passport.authenticate('google', {
     scope: ['email', 'profile'],
     accessType: 'offline' // This property is required for Google to provide a refresh token
@@ -76,7 +76,7 @@ app.get(
 )
 
 app.get(
-  '/auth/google/callback',
+  '/api/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/auth/failure' }),
   function(req, res) {
     // Success
@@ -101,11 +101,11 @@ async function updateCurrentLoginDate(userId) {
   await User.updateOne({ _id: userId }, { currentLoginDate: date })
 }
 
-app.get('/auth/failure', (req, res) => {
+app.get('/api/auth/failure', (req, res) => {
   res.send('Something went wrong')
 })
 
-app.get('/user_data', (req, res) => {
+app.get('/api/user_data', (req, res) => {
   if (req.user === undefined) {
     // Not logged in
     res.json("")
@@ -117,7 +117,7 @@ app.get('/user_data', (req, res) => {
   }
 })
 
-app.get('/logout', (req, res) => {
+app.get('/api/logout', (req, res) => {
 
   // Don't try to update user if user is not logged in
   if(req.user != undefined) {
