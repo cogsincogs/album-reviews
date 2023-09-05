@@ -1,4 +1,3 @@
-import { Children } from "react";
 import { Flex } from "@chakra-ui/react";
 
 export default function BorderBox({children}) {
