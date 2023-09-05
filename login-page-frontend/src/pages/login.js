@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom'
 import { Flex, Heading, Link, Text } from '@chakra-ui/react'
 import GoogleButton from '../components/googlebutton'
 import BorderBox from '../layouts/borderbox'
@@ -23,7 +22,7 @@ export default function Login() {
                     to demonstrate user authentication and the REST API.
                 </Text>
             </Flex>
-            <NavLink className="login" to={process.env.REACT_APP_BACKEND_URL + '/auth/google'} m={5}><GoogleButton/></NavLink>
+            <Link className="login" href={process.env.REACT_APP_BACKEND_URL + '/auth/google'} m={5}><GoogleButton/></Link>
         </BorderBox>  
     )
 }

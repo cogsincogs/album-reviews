@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
 import BorderBox from '../layouts/borderbox'
-import { Button, Flex, Heading, Text } from '@chakra-ui/react'
+import { Button, Flex, Heading, Link, Text } from '@chakra-ui/react'
 import LoadingSpinner from '../components/loadingspinner'
 import Notepad from '../components/notepad'
 
@@ -53,7 +52,7 @@ export default function Home() {
                                 : <Text m={3}>Welcome!</Text>}
                         </Flex>
                         <Flex direction="row" justify="center" m={5}>
-                            <NavLink className="home" to={process.env.REACT_APP_BACKEND_URL + '/logout'}><Button border="1px solid" borderColor="gray.400" backgroundColor="red.500" m={3} color="gray.100">Log out</Button></NavLink>
+                            <Link className="home" href={process.env.REACT_APP_BACKEND_URL + '/logout'}><Button border="1px solid" borderColor="gray.400" backgroundColor="red.500" m={3} color="gray.100">Log out</Button></Link>
                         </Flex>
                     </Flex>
                     <Flex align='flex-start' justify='flex-start' direction='column' w='50%' m={5}>
