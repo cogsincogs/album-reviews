@@ -3,7 +3,9 @@ import Post from "./post";
 import TextBox from "./textbox";
 import { useEffect, useState } from "react";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
+const BACKEND_URL = process.env.NODE_ENV === 'production' 
+                                            ? process.env.REACT_APP_BACKEND_URL
+                                            : process.env.REACT_APP_BACKEND_URL_DEV
 
 export default function Notepad({user}) {
     const [postsArray, setPostsArray] = useState([])

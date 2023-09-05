@@ -3,6 +3,10 @@ import GoogleButton from '../components/googlebutton'
 import BorderBox from '../layouts/borderbox'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 
+const BACKEND_URL = process.env.NODE_ENV === 'production' 
+                                            ? process.env.REACT_APP_BACKEND_URL
+                                            : process.env.REACT_APP_BACKEND_URL_DEV
+
 export default function Login() {
     
 
@@ -12,8 +16,9 @@ export default function Login() {
             <Flex align='flex-start' justify='space-between' direction='column' w="90%">
                 <Text m={3}>
                     This is a demonstration of a login page. It uses an API coded in Express.js, as well 
-                    as MongoDB, OAuth2.0, NodeJS, and React. The project also makes use of docker containers. 
-                    Code for this and other ongoing projects are available on my <Link color="blue" href="https://github.com/cogsincogs" isExternal>GitHub <ExternalLinkIcon/></Link> page.
+                    as MongoDB, OAuth2.0, NodeJS, React, and NGINX, as well as Docker and AWS. 
+                    Code for this and other ongoing projects are available on my 
+                    <Link color="blue" href="https://github.com/cogsincogs" isExternal> GitHub <ExternalLinkIcon/></Link> page.
                 </Text>
                 <Text m={3}>
                     Once you have logged in using your Google account, you will be able to see when you last 
@@ -22,7 +27,7 @@ export default function Login() {
                     to demonstrate user authentication and the REST API.
                 </Text>
             </Flex>
-            <Link className="login" href={process.env.REACT_APP_BACKEND_URL + '/auth/google'} m={5}><GoogleButton/></Link>
+            <Link className="login" href={BACKEND_URL + '/auth/google'} m={5}><GoogleButton/></Link>
         </BorderBox>  
     )
 }

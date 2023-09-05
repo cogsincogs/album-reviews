@@ -2,6 +2,10 @@ import { Navigate, Outlet } from "react-router-dom"
 import { useEffect, useState } from "react"
 import LoadingSpinner from "../components/loadingspinner"
 
+const BACKEND_URL = process.env.NODE_ENV === 'production' 
+                                            ? process.env.REACT_APP_BACKEND_URL
+                                            : process.env.REACT_APP_BACKEND_URL_DEV
+
 export default function ProtectedRoutes() {
     const [user, setUser] = useState(false)
     const [loading, setLoading] = useState(true)
@@ -13,7 +17,7 @@ export default function ProtectedRoutes() {
         // This is to determine whether to go to protected route or not
         async function getUser() {
             // get user and check if logged in. return user && user.loggedIn
-            const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/user_data', {
+            const response = await fetch(BACKEND_URL + '/user_data', {
                 method: "GET",
                 mode: "cors",
                 credentials: "include",

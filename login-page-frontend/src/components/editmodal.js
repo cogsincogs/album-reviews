@@ -1,6 +1,10 @@
 import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Textarea } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
+const BACKEND_URL = process.env.NODE_ENV === 'production' 
+                                            ? process.env.REACT_APP_BACKEND_URL
+                                            : process.env.REACT_APP_BACKEND_URL_DEV
+
 export default function EditModal({index, userId, isOpen, onClose, editHandler}) {
     const [content, setContent] = useState("")
 
@@ -9,7 +13,7 @@ export default function EditModal({index, userId, isOpen, onClose, editHandler})
     }, [])
 
     async function getContent() {
-        const response = await fetch(process.env.REACT_APP_BACKEND_URL + `/posts/${userId}?postIndex=${index}`, {
+        const response = await fetch(BACKEND_URL + `/posts/${userId}?postIndex=${index}`, {
             method: "GET",
             mode: "cors",
             credentials: "include",
