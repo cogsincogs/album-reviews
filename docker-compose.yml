@@ -5,9 +5,9 @@ services:
   frontend-node:
     build:
       context: login-page-frontend
-      dockerfile: Dockerfile
+      dockerfile: Dev.Dockerfile
     env_file:
-      - ./login-page-frontend/.env.development
+      - ./login-page-frontend/.env
     volumes:
       - $PWD/login-page-frontend/:/usr/src/app
     ports:
