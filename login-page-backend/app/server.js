@@ -63,8 +63,12 @@ const postsRouter = require('./routes/posts')
 app.use('/api/user', usersRouter)
 app.use('/api/posts', postsRouter)
 
+app.get('/', (req, res) => {
+  res.redirect('/api')
+})
+
 app.get('/api', (req, res) => {
-  res.send('<a href="/auth/google">Login with Google</a>')
+  res.send('<a href="/api/auth/google">Login with Google</a>')
 })
 
 app.get(
@@ -134,5 +138,5 @@ app.get('/api/logout', (req, res) => {
 })
 
 app.listen(PORT, HOST, () => {
-  console.log(`Running on http://${HOST}:${PORT}`)
+  console.log(`Running on https://${HOST}:${PORT}`)
 })
