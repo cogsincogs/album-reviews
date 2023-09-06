@@ -43,7 +43,7 @@ jobs:
 
       - name: Install AWS CLI
         id: install-aws-cli
-        uses: unfor19/install-aws-cli-action@v2
+        uses: unfor19/install-aws-cli-action@v1
         with:
           workdir: "PWD"
 
