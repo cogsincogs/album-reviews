@@ -9,15 +9,6 @@ const cors = require('cors')
 const User = require('./models/user')
 require('dotenv').config()
 
-console.log(JSON.stringify({
-  SESSION_SECRET: process.env.SESSION_SECRET,
-  GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
-  BACKEND_URL: process.env.BACKEND_URL,
-  ATLAS_URI: process.env.ATLAS_URI,
-  GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
-  FRONTEND_URL: process.env.FRONTEND_URL,
-}))
-
 require('./auth')
 
 // Constants
