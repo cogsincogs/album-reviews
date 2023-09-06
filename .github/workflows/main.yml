@@ -51,6 +51,8 @@ jobs:
         shell: bash
 
       - run: aws ecs describe-task-definition --task-definition login-page-task > task-definition.json
+      
+      - run: cat task-definition.json
 
       - name: Login to Amazon ECR
         id: login-ecr
