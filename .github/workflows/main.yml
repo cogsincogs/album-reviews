@@ -50,9 +50,7 @@ jobs:
       - run: aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }} && aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} && aws configure set region ${{ env.AWS_REGION }} && aws configure set output "json"
         shell: bash
 
-      - run: aws ecs describe-task-definition --task-definition login-page-task > task-definition.json
-      
-      - run: cat task-definition.json
+      - run: aws ecs describe-task-definition --task-definition login-page-task --query taskDefinition > task-definition.json
 
       - name: Login to Amazon ECR
         id: login-ecr
