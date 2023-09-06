@@ -8,7 +8,7 @@ env:
   ECR_BACKEND_REPOSITORY: login-page-backend
   ECS_SERVICE: login-page-service
   ECS_CLUSTER: login-page-cluster
-  ECS_TASK_DEFINITION: task_definition.json
+  ECS_TASK_DEFINITION: task-definition.json
   FRONTEND_CONTAINER_NAME: frontend
   BACKEND_CONTAINER_NAME: backend
 
