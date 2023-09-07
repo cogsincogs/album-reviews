@@ -9,6 +9,8 @@ const BACKEND_URL = process.env.NODE_ENV === 'production'
 
 export default function Login() {
     
+    console.log("BACKEND_URL: " + BACKEND_URL)
+    console.log("NODE_ENV: " + process.env.NODE_ENV)
 
     return (
         <BorderBox>
