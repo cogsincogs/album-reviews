@@ -3,7 +3,7 @@ import GoogleButton from '../components/googlebutton'
 import BorderBox from '../layouts/borderbox'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 
-const BACKEND_URL = process.env.NODE_ENV === 'production' 
+const BACKEND_URL = process.env.NODE_ENV == 'production' 
                                             ? process.env.REACT_APP_BACKEND_URL
                                             : process.env.REACT_APP_BACKEND_URL_DEV
 
