@@ -9,11 +9,6 @@ export default function Login() {
                                             ? process.env.REACT_APP_BACKEND_URL
                                             : process.env.REACT_APP_BACKEND_URL_DEV
 
-    console.log("BACKEND_URL: " + BACKEND_URL)
-    console.log("REACT_APP_BACKEND_URL: " + process.env.REACT_APP_BACKEND_URL)
-    console.log("REACT_APP_BACKEND_URL_DEV: " + process.env.REACT_APP_BACKEND_URL_DEV)
-    console.log("NODE_ENV: " + process.env.NODE_ENV)
-
     return (
         <BorderBox>
             <Heading m={5}>Hello!</Heading>
