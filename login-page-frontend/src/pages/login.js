@@ -3,12 +3,12 @@ import GoogleButton from '../components/googlebutton'
 import BorderBox from '../layouts/borderbox'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 
-const BACKEND_URL = process.env.NODE_ENV == 'production' 
+export default function Login() {
+    
+    const BACKEND_URL = process.env.NODE_ENV == 'production' 
                                             ? process.env.REACT_APP_BACKEND_URL
                                             : process.env.REACT_APP_BACKEND_URL_DEV
 
-export default function Login() {
-    
     console.log("BACKEND_URL: " + BACKEND_URL)
     console.log("NODE_ENV: " + process.env.NODE_ENV)
 
