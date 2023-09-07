@@ -4,6 +4,8 @@ FROM node:latest as build
 WORKDIR /usr/src/app
 
 ENV NODE_ENV production
+ENV REACT_APP_BACKEND_URL "https://jamiethomas.website/api"
+ENV REACT_APP_BACKEND_URL_DEV "http://localhost:8080/api"
 
 # Install app dependencies
 COPY ./package*.json ./

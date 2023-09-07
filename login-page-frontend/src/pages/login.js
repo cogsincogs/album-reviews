@@ -3,12 +3,11 @@ import GoogleButton from '../components/googlebutton'
 import BorderBox from '../layouts/borderbox'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 
-const BACKEND_URL = process.env.NODE_ENV === 'production' 
-                                            ? process.env.REACT_APP_BACKEND_URL
-                                            : process.env.REACT_APP_BACKEND_URL_DEV
-
 export default function Login() {
     
+    const BACKEND_URL = process.env.NODE_ENV == 'production' 
+                                            ? process.env.REACT_APP_BACKEND_URL
+                                            : process.env.REACT_APP_BACKEND_URL_DEV
 
     return (
         <BorderBox>
@@ -16,7 +15,7 @@ export default function Login() {
             <Flex align='flex-start' justify='space-between' direction='column' w="90%">
                 <Text m={3}>
                     This is a demonstration of a login page. It uses an API coded in Express.js, as well 
-                    as MongoDB, OAuth2.0, NodeJS, React, and NGINX, as well as Docker and AWS. 
+                    as MongoDB, OAuth2.0, NodeJS, React, NGINX, Docker, AWS, and GitHub Actions. 
                     Code for this and other ongoing projects are available on my 
                     <Link color="blue" href="https://github.com/cogsincogs" isExternal> GitHub <ExternalLinkIcon/></Link> page.
                 </Text>
