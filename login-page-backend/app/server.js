@@ -81,12 +81,12 @@ app.get(
 
 app.get(
   '/api/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/auth/failure' }),
+  passport.authenticate('google', { failureRedirect: '/api/auth/failure' }),
   function(req, res) {
     // Success
     incrementLoginCount(req.user.id, req.user.loginCount)
     updateCurrentLoginDate(req.user.id)
-    res.redirect(FRONTEND_URL + '/home')
+    res.redirect(FRONTEND_URL + '/projects/login-page/home')
   }
 )
 
@@ -133,7 +133,7 @@ app.get('/api/logout', (req, res) => {
       return next(err)
     }
     req.session.destroy()
-    res.redirect(FRONTEND_URL)
+    res.redirect(FRONTEND_URL + "/projects/login-page")
   })
 })
 

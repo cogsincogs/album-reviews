@@ -9,16 +9,18 @@ import { ChakraProvider } from '@chakra-ui/react'
 
 import RootLayout from './layouts/RootLayout'
 
-import Login from './pages/login'
-import Home from './pages/home'
+import HomePage from './pages/homepage'
+import Login from './pages/projects/login-page/login'
+import Home from './pages/projects/login-page/home'
 import ProtectedRoutes from './layouts/ProtectedRoutes'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
-      <Route index element={<Login />} />
+      <Route index element={<HomePage />} />
+      <Route path="projects/login-page" element={<Login />} />
       <Route element={<ProtectedRoutes />}>
-        <Route path="home" element={<Home />} />
+        <Route path="projects/login-page/home" element={<Home />} />
       </Route>
     </Route>
   )

@@ -23,6 +23,8 @@ import {
   ChevronRightIcon,
 } from '@chakra-ui/icons'
 
+import { NavLink } from 'react-router-dom'
+
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure()
 
@@ -56,7 +58,7 @@ export default function Navbar() {
             color={useColorModeValue('gray.800', 'white')}
             fontSize={'2xl'}
             fontWeight={'bold'}>
-            Jamie Thomas
+            <NavLink className="homepage" to="/">Jamie Thomas</NavLink>
           </Text>
         </Flex>
         <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
