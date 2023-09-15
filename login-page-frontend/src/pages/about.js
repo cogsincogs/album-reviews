@@ -20,8 +20,10 @@ export default function AboutPage() {
                             The frontend uses NodeJS and React, and the backend is a REST API using 
                             ExpressJS making calls to an online MongoDB database. Both the frontend 
                             and backend are running inside Docker containers which are deployed to an 
-                            AWS Fargate instance using the ECR. I have also configured GitHub Actions 
-                            to redeploy the images whenever a branch is merged into main.
+                            AWS Fargate instance using the ECR. I am using Route 53 and an EC2 load 
+                            balancer to point my URL to the ECS service this site is running on. I 
+                            have also configured GitHub Actions to redeploy the images whenever a 
+                            branch is merged into main.
                         </Text>
                         <br />
                         <Text>
