@@ -9,7 +9,7 @@ import {
   useColorModeValue,
   VisuallyHidden,
 } from '@chakra-ui/react'
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
+import { FaLinkedin, FaGithub } from 'react-icons/fa'
 
 const SocialButton = ({
   children,
@@ -31,7 +31,8 @@ const SocialButton = ({
       transition={'background 0.3s ease'}
       _hover={{
         bg: 'gray.600'
-      }}>
+      }}
+      target="_blank">
       <VisuallyHidden>{label}</VisuallyHidden>
       {children}
     </chakra.button>
@@ -53,14 +54,11 @@ export default function Footer() {
         align={{ base: 'center', md: 'center' }}>
         <Text>© 2023 Jamie Thomas. All rights reserved</Text>
         <Stack direction={'row'} spacing={6}>
-          <SocialButton label={'Twitter'} href={'#'}>
-            <FaTwitter />
+          <SocialButton label={'LinkedIn'} href={'https://www.linkedin.com/in/jamie-thomas-88b318198/'}>
+            <FaLinkedin />
           </SocialButton>
-          <SocialButton label={'YouTube'} href={'#'}>
-            <FaYoutube />
-          </SocialButton>
-          <SocialButton label={'Instagram'} href={'#'}>
-            <FaInstagram />
+          <SocialButton label={'GitHub'} href={'https://github.com/cogsincogs'}>
+            <FaGithub />
           </SocialButton>
         </Stack>
       </Container>
