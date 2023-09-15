@@ -94,7 +94,8 @@ const DesktopNav = () => {
                 _hover={{
                   textDecoration: 'none',
                   color: linkHoverColor,
-                }}>
+                }}
+                target={navItem.target}>
                 {navItem.label}
               </Box>
             </PopoverTrigger>
@@ -233,6 +234,7 @@ const NAV_ITEMS = [
   {
     label: 'My GitHub',
     href: 'https://github.com/cogsincogs',
+    target: '_blank'
   },
   {
     label: 'Contact me',
