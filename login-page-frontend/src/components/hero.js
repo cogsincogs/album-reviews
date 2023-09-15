@@ -30,7 +30,7 @@ export default function Hero() {
             Welcome
           </Heading>
           <Text color={'gray.500'}>
-            I'm Jamie Thomas, I'm an aspiring web developer from Oxfordshire. On this site, 
+            I'm Jamie Thomas, I'm a web developer from Oxfordshire. On this site, 
             I have some information about myself, as well as a list of the projects I have 
             worked on to date. You can also find my GitHub profile and contact information.
           </Text>
