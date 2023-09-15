@@ -9,7 +9,7 @@ export default function AboutPage() {
                     <Heading m="5" textAlign="center">About</Heading>
                     <Box ml="25%" mr="25%" fontSize="0.9em">
                         <Text>
-                            My name is Jamie Thomas, I am an web developer with a focus on 
+                            My name is Jamie Thomas, I am a web developer with a focus on 
                             backend development. I recently left London South Bank University with a 
                             first in Politics, and I have been coding as a hobby for around 10 years.
                         </Text>
