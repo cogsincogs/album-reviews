@@ -50,7 +50,7 @@ export default function Home() {
                     {loginCount > 1
                         ? <Heading m={5}>Welcome back, {firstname}!</Heading>
                         : <Heading>Hello {firstname}!</Heading>}
-                    <Flex align='flex-start' justify='space-between' w='100%' direction='row'>
+                    <Flex align='flex-start' justify='space-between' w='100%' direction='row' h="100%">
                         <Flex direction="column" align="flex-start" justify="space-between" w="50%" h="100%">
                             <Flex align='flex-start' justify='space-between' direction='column' m={5}>
                                 <Text m={3}>Login count: {loginCount}</Text>
