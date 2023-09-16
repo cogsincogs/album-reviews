@@ -19,7 +19,7 @@ export default function Login() {
                         This is a demonstration of a login page. It uses an API coded in Express.js, as well 
                         as MongoDB, OAuth2.0, NodeJS, React, NGINX, Docker, AWS, and GitHub Actions. 
                         Code for this and other ongoing projects are available on my 
-                        <Link color="blue" href="https://github.com/cogsincogs" isExternal> GitHub <ExternalLinkIcon/></Link> page.
+                        <Link color="blue.500" href="https://github.com/cogsincogs" isExternal> GitHub <ExternalLinkIcon mb="1" /></Link> page.
                     </Text>
                     <Text m={3}>
                         Once you have logged in using your Google account, you will be able to see when you last 
