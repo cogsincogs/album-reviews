@@ -64,6 +64,11 @@ export default function AboutPage() {
                     <UnorderedList ml="25%" mr="25%" fontSize="0.9em">
                         <ListItem>Working to deadlines</ListItem>
                         <ListItem>Problem-solving</ListItem>
+                        <ListItem>Flexible, while maintaining enthusiasm and commitment to a project</ListItem>
+                        <ListItem>Very proficient with many aspects of technology and computer networking</ListItem>
+                        <ListItem>Efficient at picking up new technologies</ListItem>
+                        <ListItem>Great oral and written communication skills</ListItem>
+                        <ListItem>Eager to help other people and solve their problems</ListItem>
                     </UnorderedList>
                 </Flex>
             </DefaultLayout>
