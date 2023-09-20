@@ -9,7 +9,7 @@ export default function ProjectsPage() {
                 <Flex direction="column" m={5} alignItems="center">
                     <Heading m={5}>Projects</Heading>
                     <UnorderedList listStyleType="none">
-                        <ListItem><Link href="/projects/login-page" color="blue.500">Login Page Project</Link> - <Link href="https://github.com/cogsincogs/login-page" color="blue.500" isExternal>GitHub Repo <ExternalLinkIcon mb="1"/></Link></ListItem>
+                        <ListItem><Link href="/projects/login-page" color="blue.500">Login Page Project</Link> - <Link href="https://github.com/jamiethomas1/login-page" color="blue.500" isExternal>GitHub Repo <ExternalLinkIcon mb="1"/></Link></ListItem>
                     </UnorderedList>
                 </Flex>
             </DefaultLayout>

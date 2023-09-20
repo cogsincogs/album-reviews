@@ -16,7 +16,7 @@ export default function ContactPage() {
                     <br/>
                     <Link href="https://www.linkedin.com/in/jamie-thomas-88b318198/" color="blue.500" isExternal>My LinkedIn <ExternalLinkIcon mb="1"/></Link>
                     <br/>
-                    <Link href="https://github.com/cogsincogs" color="blue.500" isExternal>My GitHub <ExternalLinkIcon mb="1" /></Link>
+                    <Link href="https://github.com/jamiethomas1" color="blue.500" isExternal>My GitHub <ExternalLinkIcon mb="1" /></Link>
                 </Flex>
             </DefaultLayout>
         </>

@@ -233,7 +233,7 @@ const NAV_ITEMS = [
   },
   {
     label: 'My GitHub',
-    href: 'https://github.com/cogsincogs',
+    href: 'https://github.com/jamiethomas1',
     target: '_blank'
   },
   {
