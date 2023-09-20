@@ -122,7 +122,7 @@ const DesktopNav = () => {
   )
 }
 
-const DesktopSubNav = ({ label, href, subLabel }) => {
+const DesktopSubNav = ({ label, href, subLabel, target }) => {
   return (
     <Box
       as="a"
@@ -131,7 +131,8 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
       display={'block'}
       p={2}
       rounded={'md'}
-      _hover={{ bg: useColorModeValue('green.50', 'gray.900') }}>
+      _hover={{ bg: useColorModeValue('green.50', 'gray.900') }}
+      target={target}>
       <Stack direction={'row'} align={'center'}>
         <Box>
           <Text
@@ -228,6 +229,12 @@ const NAV_ITEMS = [
         label: 'Login Page Project',
         subLabel: 'Demonstration of OAuth and REST API',
         href: '/projects/login-page',
+      },
+      {
+        label: 'Trivia Quiz',
+        subLabel: 'Simple quiz I created for my family',
+        href: 'https://jamiethomas1.github.io/quiz',
+        target: '_blank'
       },
     ],
   },
