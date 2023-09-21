@@ -70,6 +70,7 @@ export default function AboutPage() {
                         <ListItem>Great oral and written communication skills</ListItem>
                         <ListItem>Eager to help other people and solve their problems</ListItem>
                     </UnorderedList>
+                    <br/>
                 </Flex>
             </DefaultLayout>
         </>
