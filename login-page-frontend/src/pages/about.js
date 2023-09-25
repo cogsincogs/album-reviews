@@ -1,4 +1,4 @@
-import { Heading, Flex, Text, UnorderedList, ListItem, Box } from "@chakra-ui/react"
+import { Heading, Flex, Text, UnorderedList, ListItem, Box, List } from "@chakra-ui/react"
 import DefaultLayout from "../layouts/DefaultLayout"
 
 export default function AboutPage() {
@@ -62,13 +62,13 @@ export default function AboutPage() {
 
                     <Heading as="h3" size="md" textAlign="center" m="3">My professional skills</Heading>
                     <UnorderedList ml="25%" mr="25%" fontSize="0.9em">
-                        <ListItem>Working to deadlines</ListItem>
-                        <ListItem>Problem-solving</ListItem>
-                        <ListItem>Flexible, while maintaining enthusiasm and commitment to a project</ListItem>
-                        <ListItem>Very proficient with many aspects of technology and computer networking</ListItem>
                         <ListItem>Efficient at picking up new technologies</ListItem>
+                        <ListItem>Ability to work individually and as part of a team</ListItem>
+                        <ListItem>Very proficient with many aspects of technology</ListItem>
+                        <ListItem>Great problem-solving skills</ListItem>
                         <ListItem>Great oral and written communication skills</ListItem>
-                        <ListItem>Eager to help other people and solve their problems</ListItem>
+                        <ListItem>Eager to help other people</ListItem>
+                        <ListItem>Critical thinking</ListItem>
                     </UnorderedList>
                     <br/>
                 </Flex>
