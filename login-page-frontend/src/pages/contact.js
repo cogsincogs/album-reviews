@@ -10,7 +10,7 @@ export default function ContactPage() {
                 <Flex direction="column" m="5">
                     <Heading m="5" textAlign="center">Contact</Heading>
                     <br/>
-                    <Link href="#" color="blue.500" isExternal>My CV (to be added) <ExternalLinkIcon mb="1" /></Link>
+                    <Link href="/assets/cv-jamie-thomas.pdf" color="blue.500" isExternal>My CV <ExternalLinkIcon mb="1" /></Link>
                     <br/>
                     <Link href="mailto:jamiewthomas13@gmail.com" color="blue.500">Click here to send me an email</Link>
                     <br/>
