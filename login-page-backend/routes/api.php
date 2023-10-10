@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +17,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => ['web']], function () {
+    Route::get('/', function () {
+        return '<a href="/api/auth/google">Login with Google</a>';
+    });
+    
+    Route::get('/auth/google', function () {
+        return Socialite::driver('google')
+            ->with(['access_type' => 'offline'])
+            ->redirect();
+    });
+    
+    Route::get('/auth/google/callback', function () {
+        $googleUser = Socialite::driver('google')->user();
+
+        $user = User::updateOrCreate([
+            'google_id' => $googleUser->id,
+        ], [
+            'name' => $googleUser->name,
+            'email' => $googleUser->email,
+            'google_token' => $googleUser->token,
+            'google_refresh_token' => $googleUser->refreshToken,
+        ]);
+
+        Auth::login($user);
+
+        return redirect('http://localhost:3000/projects/login-page/home');
+    });
 });
+
