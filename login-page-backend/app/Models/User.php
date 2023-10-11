@@ -18,11 +18,17 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'username',
+        'firstname',
+        'thumbnail',
         'email',
+        'postsArray',
+        'loginCount',
         'google_id',
         'google_token',
         'google_refresh_token',
+        'postsArray',
+        'loginCount',
     ];
 
     /**
@@ -44,5 +50,15 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'postsArray' => 'array',
+    ];
+
+    /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'postsArray' => '{}'
     ];
 }
