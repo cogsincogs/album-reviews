@@ -86,19 +86,27 @@ Route::group(['middleware' => ['web']], function () {
             updateLastLogin($req->user());
         }
 
-        // TODO: Implement logout functionality
+        Auth::logout();
+        $req->session()->invalidate();
+        $req->session()->regenerateToken();
+        return redirect('http://localhost:3000/projects/login-page');
     });
 });
 
 function incrementLoginCount(User $user) {
-    // TODO: Update given user with the user's loginCount plus 1
+    // Update given user with the user's loginCount plus 1
+    $user->update(['loginCount' => $user->loginCount + 1]);
+    $user->save();
 }
 
 function updateLastLogin(User $user) {
-    // TODO: Update given user's lastLogin with its value for currentLoginDate
+    // Update given user's lastLogin with its value for currentLoginDate
+    $user->update(['lastLogin' => $user->currentLoginDate]);
+    $user->save();
 }
 
 function updateCurrentLoginDate(User $user) {
-    // TODO: Update given user's currentLoginDate with current date
+    // Update given user's currentLoginDate with current date
+    $user->update(['currentLoginDate' => DB::raw('CURRENT_TIMESTAMP')]);
 }
 
