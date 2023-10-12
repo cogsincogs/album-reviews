@@ -24,11 +24,11 @@ class User extends Authenticatable
         'email',
         'postsArray',
         'loginCount',
+        'lastLogin',
+        'currentLoginDate',
         'google_id',
         'google_token',
         'google_refresh_token',
-        'postsArray',
-        'loginCount',
     ];
 
     /**
