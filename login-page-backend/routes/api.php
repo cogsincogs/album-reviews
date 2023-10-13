@@ -107,6 +107,6 @@ function updateLastLogin(User $user) {
 
 function updateCurrentLoginDate(User $user) {
     // Update given user's currentLoginDate with current date
-    $user->update(['currentLoginDate' => DB::raw('CURRENT_TIMESTAMP')]);
+    $user->update(['currentLoginDate' => time()]);
 }
 

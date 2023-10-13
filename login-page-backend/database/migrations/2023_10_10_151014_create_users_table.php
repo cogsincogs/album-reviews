@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('thumbnail');
             $table->json('postsArray');
             $table->integer('loginCount')->default('1');
-            $table->timestamp('lastLogin')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('currentLoginDate')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->integer('lastLogin')->nullable()->default(DB::raw('NULL'));
+            $table->integer('currentLoginDate')->default(str(time()));
             $table->string('email')->unique();
             $table->string('google_id');
             $table->string('google_token');
