@@ -39,7 +39,8 @@ export default function Home() {
     const firstname = user.firstname;
     const loginCount = user.loginCount;
 
-    const lastLogin = user.lastLogin ? new Date(user.lastLogin) : false
+    // lastLogin: if user.lastLogin is null, set to false. Otherwise, create a Date out of the timestamp.
+    const lastLogin = user.lastLogin ? new Date(user.lastLogin * 1000) : false      // Multiplying by 1000 because JS counts milliseconds since Unix epoch.
     const formattedLLDate = lastLogin ? lastLogin.toLocaleDateString() : false
     const formattedLLTime = lastLogin ? lastLogin.toLocaleTimeString() : false
 
