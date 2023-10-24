@@ -95,6 +95,8 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/posts/{id}', [PostController::class, 'getAllPosts']);
     Route::post('/posts/{id}', [PostController::class, 'newPost']);
+    Route::patch('/posts/{id}', [PostController::class, 'editPost']);
+    Route::delete('/posts/{id}', [PostController::class, 'deletePost']);
 
     Route::get('/csrf', function (Request $req) {
         return json_encode(['token' => csrf_token()]);

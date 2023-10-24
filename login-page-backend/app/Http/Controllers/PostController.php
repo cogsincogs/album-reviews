@@ -31,4 +31,33 @@ class PostController extends Controller
         $user->update(['postsArray' => $postsArray]);
         $user->save();
     }
+
+    /**
+     * Edit an existing post
+     */
+    public function editPost(Request $req, string $id) {
+        $user = User::findOrFail($id);
+        $postsArray = $user->postsArray;
+        $postIndex = $req->postIndex;
+        $post = $postsArray[$postIndex];
+        $updatedPost = [
+            'date' => $post['date'],
+            'content' => $req->content,
+        ];
+        $postsArray[$postIndex] = $updatedPost;
+        $user->update(['postsArray' => $postsArray]);
+        $user->save();
+    }
+
+    /**
+     * Delete a post
+     */
+    public function deletePost(Request $req, string $id) {
+        $user = User::findOrFail($id);
+        $postsArray = $user->postsArray;
+        $postIndex = $req->postIndex;
+        array_splice($postsArray, $postIndex, 1);
+        $user->update(['postsArray' => $postsArray]);
+        $user->save();
+    }
 }
