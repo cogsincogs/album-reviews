@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -90,6 +91,13 @@ Route::group(['middleware' => ['web']], function () {
         $req->session()->invalidate();
         $req->session()->regenerateToken();
         return redirect('http://localhost:3000/projects/login-page');
+    });
+
+    Route::get('/posts/{id}', [PostController::class, 'getAllPosts']);
+    Route::post('/posts/{id}', [PostController::class, 'newPost']);
+
+    Route::get('/csrf', function (Request $req) {
+        return json_encode(['token' => csrf_token()]);
     });
 });
 
