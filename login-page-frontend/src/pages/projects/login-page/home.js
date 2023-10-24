@@ -4,6 +4,7 @@ import { Button, Flex, Heading, Link, Text } from '@chakra-ui/react'
 import LoadingSpinner from '../../../components/loadingspinner'
 import Notepad from '../../../components/notepad'
 import DefaultLayout from "../../../layouts/DefaultLayout"
+import fetcher from "../../../utils/fetcher"
 
 
 const BACKEND_URL = process.env.NODE_ENV === 'production' 
@@ -22,7 +23,7 @@ export default function Home() {
 
     // This is to get information about the user
     async function getUser() {
-        const response = await fetch(BACKEND_URL + '/user_data', {
+        const response = await fetcher(BACKEND_URL + '/user_data', {
             method: "GET",
             mode: "cors",
             credentials: "include",
