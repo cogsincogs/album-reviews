@@ -37,8 +37,8 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        incrementLoginCount(Auth::user());
-        updateCurrentLoginDate(Auth::user());
+        $this->incrementLoginCount(Auth::user());
+        $this->updateCurrentLoginDate(Auth::user());
 
         return redirect('http://localhost:3000/projects/login-page/home');
     }
@@ -55,7 +55,7 @@ class AuthController extends Controller
      */
     public function logout(Request $req) {
         if ($req->user()) {
-            updateLastLogin($req->user());
+            $this->updateLastLogin($req->user());
         }
 
         Auth::logout();
