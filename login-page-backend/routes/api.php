@@ -21,11 +21,6 @@ use Illuminate\Support\Facades\Auth;
 // These endpoints must use web middleware as they redirect the page
 Route::group(['middleware' => ['web']], function () {
     
-    // Not really needed, just another way to login
-    Route::get('/', function () {
-        return '<a href="/api/auth/google">Login with Google</a>';
-    });
-    
     // The link clicked by the user when logging in. Initialises Google login process.
     Route::get('/auth/google', function () {
         return Socialite::driver('google')
