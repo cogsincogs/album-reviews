@@ -40,7 +40,7 @@ class AuthController extends Controller
         $this->incrementLoginCount(Auth::user());
         $this->updateCurrentLoginDate(Auth::user());
 
-        return redirect('http://localhost:3000/projects/login-page/home');
+        return redirect(env('FRONTEND_URL') + '/projects/login-page/home');
     }
 
     /**
@@ -61,7 +61,7 @@ class AuthController extends Controller
         Auth::logout();
         $req->session()->invalidate();
         $req->session()->regenerateToken();
-        return redirect('http://localhost:3000/projects/login-page');
+        return redirect(env('FRONTEND_URL') + '/projects/login-page');
     }
 
     /**
