@@ -14,7 +14,6 @@ services:
     volumes:
       - $PWD/login-page-frontend/:/usr/src/app
     ports:
-    #  - 80:80
       - 3000:3000
     image: jwthomas/login-page-frontend-node
 
@@ -23,11 +22,3 @@ services:
       context: login-page-backend
     depends_on:
       - laravel.test
-    #   dockerfile: Dockerfile
-    # env_file:
-    #   - ./login-page-backend/.env
-    # volumes:
-    #   - $PWD/login-page-backend/app:/usr/src/app
-    # ports:
-    #   - 8080:8080
-    # image: jwthomas/login-page-backend-node:latest
