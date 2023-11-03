@@ -4,3 +4,4 @@ login-page-frontend/.env*
 login-page-backend/.env*
 *.rest
 docker-tag.sh
+docker-tag-laravel.sh
