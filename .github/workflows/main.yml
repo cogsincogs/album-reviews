@@ -98,7 +98,7 @@ jobs:
           docker pull mysql/mysql-server:8.0
           docker tag mysql/mysql-server:8.0 $ECR_REGISTRY/$ECR_DB_REPOSITORY:$IMAGE_TAG
           docker push $ECR_REGISTRY/$ECR_DB_REPOSITORY:$IMAGE_TAG
-          echo "::set-output name=image::$ECR_REGISTRY/$ECR_FRONTEND_REPOSITORY:$IMAGE_TAG"
+          echo "::set-output name=image::$ECR_REGISTRY/$ECR_DB_REPOSITORY:$IMAGE_TAG"
 
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def-backend
