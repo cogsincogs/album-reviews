@@ -1,6 +1,7 @@
 import { Navigate, Outlet } from "react-router-dom"
 import { useEffect, useState } from "react"
 import LoadingSpinner from "../components/loadingspinner"
+import fetcher from "../utils/fetcher"
 
 const BACKEND_URL = process.env.NODE_ENV === 'production' 
                                             ? process.env.REACT_APP_BACKEND_URL
@@ -17,7 +18,7 @@ export default function ProtectedRoutes() {
         // This is to determine whether to go to protected route or not
         async function getUser() {
             // get user and check if logged in. return user && user.loggedIn
-            const response = await fetch(BACKEND_URL + '/user_data', {
+            const response = await fetcher(BACKEND_URL + '/user_data', {
                 method: "GET",
                 mode: "cors",
                 credentials: "include",
