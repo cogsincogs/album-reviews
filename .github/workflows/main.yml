@@ -4,13 +4,15 @@ name: Deploy to Amazon ECS
 
 env:
   AWS_REGION: eu-west-2
-  ECR_FRONTEND_REPOSITORY: login-page-frontend
-  ECR_BACKEND_REPOSITORY: login-page-backend
-  ECS_SERVICE: login-page-service
+  ECR_FRONTEND_REPOSITORY: lp-frontend-laravel
+  ECR_BACKEND_REPOSITORY: lp-backend-laravel
+  ECR_DB_REPOSITORY: lp-mysql-laravel
+  ECS_SERVICE: lp-laravel-service
   ECS_CLUSTER: login-page-cluster
   ECS_TASK_DEFINITION: task-definition.json
   FRONTEND_CONTAINER_NAME: frontend
   BACKEND_CONTAINER_NAME: backend
+  DB_CONTAINER_NAME: mysql
 
 # Controls when the workflow will run
 on:
@@ -50,7 +52,7 @@ jobs:
       - run: aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }} && aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} && aws configure set region ${{ env.AWS_REGION }} && aws configure set output "json"
         shell: bash
 
-      - run: aws ecs describe-task-definition --task-definition login-page-task --query taskDefinition > task-definition.json
+      - run: aws ecs describe-task-definition --task-definition lp-laravel-task-def --query taskDefinition > task-definition.json
 
       - name: Login to Amazon ECR
         id: login-ecr
@@ -82,6 +84,19 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_FRONTEND_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_FRONTEND_REPOSITORY:$IMAGE_TAG"
 
+      - name: Build, tag, and push mysql image to Amazon ECR
+        id: build-mysql-image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          IMAGE_TAG: latest
+        run: |
+          # Build docker container and
+          # push it to ECR so that it can
+          # be deployed to ECS.
+          docker tag mysql/mysql-server:8.0 $ECR_REGISTRY/$ECR_DB_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_DB_REPOSITORY:$IMAGE_TAG
+          echo "::set-output name=image::$ECR_REGISTRY/$ECR_FRONTEND_REPOSITORY:$IMAGE_TAG"
+
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def-backend
         uses: aws-actions/amazon-ecs-render-task-definition@v1
@@ -98,10 +113,18 @@ jobs:
           container-name: ${{ env.FRONTEND_CONTAINER_NAME }}
           image: ${{ steps.build-frontend-image.outputs.image }}
 
+      - name: Fill in the new image ID in the Amazon ECS task definition
+        id: task-def-mysql
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: ${{ steps.task-def-frontend.outputs.task-definition }}
+          container-name: ${{ env.DB_CONTAINER_NAME }}
+          image: ${{ steps.build-mysql-image.outputs.image }}
+
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
-          task-definition: ${{ steps.task-def-frontend.outputs.task-definition }}
+          task-definition: ${{ steps.task-def-mysql.outputs.task-definition }}
           service: ${{ env.ECS_SERVICE }}
           cluster: ${{ env.ECS_CLUSTER }}
           wait-for-service-stability: true
