@@ -67,6 +67,8 @@ jobs:
           # Build docker container and
           # push it to ECR so that it can
           # be deployed to ECS.
+          composer install
+          docker build -t lp-backend-laravel-base:latest ./login-page-backend/vendor/laravel/sail/runtimes/8.2/ --no-cache --build-arg WWWGROUP=1000 --build-arg WWWUSER=1000
           docker build -t $ECR_REGISTRY/$ECR_BACKEND_REPOSITORY:$IMAGE_TAG ./login-page-backend
           docker push $ECR_REGISTRY/$ECR_BACKEND_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_BACKEND_REPOSITORY:$IMAGE_TAG"
