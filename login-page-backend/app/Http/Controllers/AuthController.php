@@ -14,7 +14,7 @@ class AuthController extends Controller
      */
     public function login() {
         return Socialite::driver('google')
-            ->with(['access_type' => 'offline'])
+            ->with(['access_type' => 'offline', "prompt" => "consent select_account"])
             ->redirect();
     }
 
