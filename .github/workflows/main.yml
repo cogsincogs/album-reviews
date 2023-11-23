@@ -19,8 +19,6 @@ on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -67,7 +65,7 @@ jobs:
           # Build docker container and
           # push it to ECR so that it can
           # be deployed to ECS.
-          cd login-page-laravel
+          cd login-page-backend
           composer install
           cd ..
           docker build -t lp-backend-laravel-base:latest ./login-page-backend/vendor/laravel/sail/runtimes/8.2/ --no-cache --build-arg WWWGROUP=1000 --build-arg WWWUSER=1000
