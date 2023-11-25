@@ -24,7 +24,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/logout', [AuthController::class, 'logout']);
     Route::get('/user_data', [AuthController::class, 'userData']);
 
-    Route::get('/posts/{id}', [PostController::class, 'getAllPosts']);
+    Route::get('/posts/{id}', [PostController::class, 'getPosts']);
     Route::post('/posts/{id}', [PostController::class, 'newPost']);
     Route::patch('/posts/{id}', [PostController::class, 'editPost']);
     Route::delete('/posts/{id}', [PostController::class, 'deletePost']);
