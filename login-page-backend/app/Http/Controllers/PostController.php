@@ -10,9 +10,14 @@ class PostController extends Controller
     /**
      * Get all posts for a given user
      */
-    public function getAllPosts(string $id): string
+    public function getPosts(Request $req, string $id): string
     {
         $user = User::findOrFail($id);
+
+        if ($req->postIndex) {
+            return json_encode($user->postsArray[$req->postIndex]);
+        }
+
         return json_encode($user->postsArray);
     }
 
