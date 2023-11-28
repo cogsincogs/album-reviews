@@ -16,20 +16,22 @@ export default function AboutPage() {
                         <br />
                         <Text>
                             Recently, I have been working on a project that implements an OAuth2.0 
-                            login page using Google accounts. This project is written in Javascript. 
-                            The frontend uses NodeJS and React, and the backend is a REST API using 
-                            ExpressJS making calls to an online MongoDB database. Both the frontend 
-                            and backend are running inside Docker containers which are deployed to an 
-                            AWS Fargate instance using the ECR. I am using Route 53 and an EC2 load 
-                            balancer to point my URL to the ECS service this site is running on. I 
-                            have also configured GitHub Actions to redeploy the images whenever a 
-                            branch is merged into main.
+                            login page using Google accounts. This project is written in Javascript 
+                            and PHP. The frontend uses NodeJS and React, and the backend is a REST API 
+                            using PHP and Laravel making calls to a local MySQL database. The frontend, 
+                            backend, and SQL database are running inside Docker containers which are 
+                            deployed to an AWS Fargate instance using the ECR. I am using Route 53 and 
+                            an EC2 load balancer to point my URL to the ECS service this site is 
+                            running on. I have also configured GitHub Actions to redeploy the images 
+                            whenever a branch is merged into main.
                         </Text>
                         <br />
                         <Text>
-                            I have experience in languages other than Javascript, ranging from PHP 
-                            that you will see in some of my other GitHub repos, to Java and C++ which 
-                            I took an interest in while growing up.
+                            I have experience in languages other than Javascript and PHP, ranging from 
+                            languages such as Python and C# which I have experimented with, to languages 
+                            like Java and C++ which I took an interest in while I was growing up. I am 
+                            currently also interested in graphics programming, and I spend some of my 
+                            free time learning OpenGL in C++.
                         </Text>
                         <br />
                         <Text>
@@ -40,8 +42,9 @@ export default function AboutPage() {
                         <br />
                         <Text>
                             Outside of web development, I'm a big prog rock fan, I enjoy reading about 
-                            history, and learning 
-                            languages.
+                            history, and learning languages. I'm proud of having taught myself Norwegian 
+                            mainly through reading books and news articles, and I am now doing the same 
+                            thing with German.
                         </Text>
                     </Box>
                     <Heading as="h3" size="md" textAlign="center" m="3">My technical skills</Heading>
@@ -50,14 +53,15 @@ export default function AboutPage() {
                             Experience with many languages: Javascript, PHP, Python, Java, C++, 
                             SQL, C#
                         </ListItem>
+                        <ListItem>Laravel</ListItem>
                         <ListItem>ReactJS/NextJS</ListItem>
                         <ListItem>MySQL, MongoDB</ListItem>
                         <ListItem>REST API</ListItem>
                         <ListItem>OAuth2.0</ListItem>
                         <ListItem>NGINX</ListItem>
                         <ListItem>Docker</ListItem>
-                        <ListItem>AWS: ECS, ECR, EC2, Route53, VPC</ListItem>
-                        <ListItem>GitHub version control & Actions</ListItem>
+                        <ListItem>AWS: ECS, ECR, EC2, Route53, VPC, EFS</ListItem>
+                        <ListItem>GitHub source control & Actions</ListItem>
                     </UnorderedList>
 
                     <Heading as="h3" size="md" textAlign="center" m="3">My professional skills</Heading>
