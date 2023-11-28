@@ -1,6 +1,6 @@
 # login-page
 
-This project is a demonstration of an OAuth2.0 login process. I decided to create this project to teach myself exactly what goes on when you click a 'Sign in with Google' button to log in to a website. The project makes use of the MERN stack, with the frontend using React, the backend using Express, and MongoDB used as the database. This means the whole project is written in Javascript. I have examples of PHP code in my other repos if that is of interest.
+This project is a demonstration of an OAuth2.0 login process. I decided to create this project to teach myself exactly what goes on when you click a 'Sign in with Google' button to log in to a website. This branch of the project uses a React frontend, and a PHP/Laravel/MySQL backend. The branch currently deployed to my website uses an ExpressJS backend, but this branch is fully functional and functionally identical and will be deployed to AWS shortly.
 
 Link to project: https://jamiethomas.website/projects/login-page
 
