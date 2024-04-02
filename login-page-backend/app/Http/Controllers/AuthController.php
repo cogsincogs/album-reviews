@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
 {
@@ -69,7 +70,7 @@ class AuthController extends Controller
      */
     public function userData(Request $req) {
         if (!$req->user()) {
-            
+
             // Not logged in
             return json_encode("");
 
@@ -93,7 +94,7 @@ class AuthController extends Controller
         $user->update(['loginCount' => $user->loginCount + 1]);
         $user->save();
     }
-    
+
     /**
      * This sets the currentLoginDate to the current time & date when the user logs in
      */
@@ -101,7 +102,7 @@ class AuthController extends Controller
         // Update given user's currentLoginDate with current date
         $user->update(['currentLoginDate' => time()]);
     }
-    
+
     /**
      * This sets the lastLogin variable to the currentLoginDate when the user logs out
      */
